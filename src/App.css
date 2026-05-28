@@ -1,0 +1,706 @@
+/* ============================================
+   ESTILOS BASE
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #111;
+  color: white;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(234, 179, 8, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(234, 179, 8, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================
+   CONTENIDO PRINCIPAL (2 COLUMNAS)
+   ============================================ */
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(24, 24, 27, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(234, 179, 8, 0.6);
+  box-shadow: 0 30px 60px -12px rgba(234, 179, 8, 0.2);
+}
+
+.titulo {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #fbbf24 0%, #eab308 50%, #ca8a04 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  text-align: center;
+  color: #9ca3af;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.875rem;
+  background: rgba(39, 39, 42, 0.8);
+  color: white;
+  border: 2px solid #3f3f46;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23eab308' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2rem;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: #eab308;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.2);
+  background: rgba(39, 39, 42, 1);
+}
+
+.form-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  color: #000000;
+  font-weight: bold;
+  padding: 0.875rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(234, 179, 8, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   INFO CARD
+   ============================================ */
+
+.info-container {
+  display: flex;
+  align-items: center;
+}
+
+.info-card {
+  background: rgba(24, 24, 27, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(234, 179, 8, 0.6);
+}
+
+.info-title {
+  color: #eab308;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.info-text {
+  color: #d1d5db;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.info-item {
+  padding: 0.75rem;
+  background: rgba(39, 39, 42, 0.6);
+  border-radius: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: rgba(234, 179, 8, 0.1);
+  transform: translateX(5px);
+}
+
+/* ============================================
+   MENÚ HAMBURGUESA
+   ============================================ */
+
+.menu-hamburguesa {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.menu-btn {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.menu-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(234, 179, 8, 0.4);
+}
+
+.menu-btn span {
+  width: 25px;
+  height: 3px;
+  background: black;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.menu-btn.abierto span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-btn.abierto span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.abierto span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.menu-overlay.activo {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-nav {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 280px;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  z-index: 999;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5);
+  border-right: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.menu-nav.activo {
+  left: 0;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.menu-header h3 {
+  color: #eab308;
+  font-size: 1.2rem;
+}
+
+.menu-cerrar {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.menu-cerrar:hover {
+  background: rgba(234, 179, 8, 0.2);
+  color: #eab308;
+}
+
+.menu-lista {
+  list-style: none;
+  padding: 20px;
+}
+
+.menu-lista li {
+  margin-bottom: 15px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(39, 39, 42, 0.6);
+  border: 1px solid rgba(234, 179, 8, 0.2);
+  border-radius: 12px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.menu-item:hover {
+  background: rgba(234, 179, 8, 0.15);
+  border-color: #eab308;
+  transform: translateX(5px);
+}
+
+/* ============================================
+   LOGIN MODAL
+   ============================================ */
+
+.admin-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.admin-panel .admin-container {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  position: relative;
+}
+
+.admin-panel .admin-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #fbbf24 0%, #eab308 50%, #ca8a04 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.admin-panel .cerrar-admin {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #ef4444;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.admin-panel .cerrar-admin:hover {
+  background: rgba(239, 68, 68, 0.4);
+  transform: scale(1.05);
+}
+
+.admin-panel .form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-panel .form-input {
+  width: 100%;
+  padding: 0.875rem;
+  background: rgba(39, 39, 42, 0.8);
+  color: white;
+  border: 2px solid #3f3f46;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+
+.admin-panel .form-input:focus {
+  outline: none;
+  border-color: #eab308;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.2);
+}
+
+.admin-panel .submit-btn {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  color: black;
+  font-weight: bold;
+  padding: 0.875rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 968px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .info-container {
+    order: 2;
+  }
+  
+  .form-container {
+    order: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .content-wrapper {
+    padding: 1rem;
+  }
+  
+  .card,
+  .info-card {
+    padding: 1.5rem;
+  }
+  
+  .titulo {
+    font-size: 1.8rem;
+  }
+  
+  .menu-btn {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .form-input,
+  .form-select,
+  .submit-btn {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 1.5rem;
+  }
+  
+  .card,
+  .info-card {
+    padding: 1.25rem;
+  }
+  
+  .info-title {
+    font-size: 1.2rem;
+  }
+  
+  .info-text {
+    font-size: 0.85rem;
+  }
+  
+  .info-item {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #eab308;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ca8a04;
+}
+/* ============================================
+   LOGIN MODAL
+   ============================================ */
+
+.login-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-modal-content {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  position: relative;
+  animation: fadeInUp 0.3s ease;
+}
+
+.login-modal-cerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #ef4444;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.login-modal-cerrar:hover {
+  background: rgba(239, 68, 68, 0.4);
+  transform: scale(1.05);
+}
+
+.login-modal-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #fbbf24 0%, #eab308 50%, #ca8a04 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-input {
+  width: 100%;
+  padding: 0.875rem;
+  background: rgba(39, 39, 42, 0.8);
+  color: white;
+  border: 2px solid #3f3f46;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #eab308;
+  box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.2);
+}
+
+.login-submit-btn {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  color: black;
+  font-weight: bold;
+  padding: 0.875rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.login-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(234, 179, 8, 0.4);
+}
+
+/* ============================================
+   ADMIN MODAL
+   ============================================ */
+
+.admin-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.admin-modal-content {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  animation: fadeInUp 0.3s ease;
+}
+
+/* Scroll para el modal */
+.admin-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.admin-modal-content::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.admin-modal-content::-webkit-scrollbar-thumb {
+  background: #eab308;
+  border-radius: 4px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
