@@ -18,8 +18,8 @@ export default function Admin({ cerrar }) {
     try {
 
       const res = await axios.get(
-        "https://barbershop1-rugt.onrender.com/todas"
-      );
+        "https://mysql-production-7547.up.railway.app/todas"
+      )
 
       setCitas(res.data);
 
@@ -57,7 +57,7 @@ export default function Admin({ cerrar }) {
     try {
 
       await axios.delete(
-        `https://barbershop1-rugt.onrender.com/eliminar/${id}`
+        `https://mysql-production-7547.up.railway.app/eliminar/${id}`
       );
 
       alert("🗑️ Cita eliminada correctamente");

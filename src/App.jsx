@@ -131,7 +131,7 @@ export default function App() {
     if (formulario.fecha && formulario.barbero) {
 
       fetch(
-        `https://barbershop1-rugt.onrender.com/citas/${formulario.fecha}/${formulario.barbero}`
+        `https://mysql-production-7547.up.railway.app/citas/${formulario.fecha}/${formulario.barbero}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -192,7 +192,7 @@ export default function App() {
     try {
 
       await axios.post(
-        "https://barbershop1-rugt.onrender.com/agendar",
+        "https://mysql-production-7547.up.railway.app//agendar",
         formulario
       );
 
