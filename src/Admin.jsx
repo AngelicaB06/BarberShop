@@ -18,7 +18,7 @@ export default function Admin({ cerrar }) {
     try {
 
       const res = await axios.get(
-        "http://localhost:3001/todas"
+        "https://barbershop1-rugt.onrender.com/todas"
       );
 
       setCitas(res.data);
@@ -57,7 +57,7 @@ export default function Admin({ cerrar }) {
     try {
 
       await axios.delete(
-        `http://localhost:3001/eliminar/${id}`
+        `https://barbershop1-rugt.onrender.com/eliminar/${id}`
       );
 
       alert("🗑️ Cita eliminada correctamente");

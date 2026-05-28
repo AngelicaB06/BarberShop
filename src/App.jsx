@@ -131,7 +131,7 @@ export default function App() {
     if (formulario.fecha && formulario.barbero) {
 
       fetch(
-        `http://localhost:3001/citas/${formulario.fecha}/${formulario.barbero}`
+        `https://barbershop1-rugt.onrender.com/citas/${formulario.fecha}/${formulario.barbero}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -192,7 +192,7 @@ export default function App() {
     try {
 
       await axios.post(
-        "http://localhost:3001/agendar",
+        "https://barbershop1-rugt.onrender.com/agendar",
         formulario
       );
 
