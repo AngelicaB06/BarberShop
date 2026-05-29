@@ -8,6 +8,13 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // ============================================
+// MIDDLEWARES
+// ============================================
+
+app.use(cors());
+app.use(express.json());
+
+// ============================================
 // WHATSAPP BUSINESS API
 // ============================================
 
@@ -25,13 +32,6 @@ const telefonosBarberos = {
   Rodrigo: "525665094429",
   Antonio: "525520523608",
 };
-
-// ============================================
-// MIDDLEWARES
-// ============================================
-
-app.use(cors());
-app.use(express.json());
 
 // ============================================
 // CONEXIÓN MYSQL
@@ -67,6 +67,7 @@ app.get("/", (req, res) => {
 // ============================================
 
 app.get("/citas/:fecha/:barbero", (req, res) => {
+
   const fecha = req.params.fecha;
   const barbero = req.params.barbero;
 
@@ -74,23 +75,24 @@ app.get("/citas/:fecha/:barbero", (req, res) => {
     "SELECT hora FROM citas WHERE fecha = ? AND barbero = ?";
 
   db.query(sql, [fecha, barbero], (err, result) => {
+
     if (err) {
       console.log(err);
-
-      return res
-        .status(500)
-        .send("Error al obtener horarios");
+      return res.status(500).send("Error al obtener horarios");
     }
 
     res.json(result);
+
   });
+
 });
 
 // ============================================
 // AGENDAR CITA
 // ============================================
 
-app.post("/agendar", async (req, res) => {
+app.post("/agendar", (req, res) => {
+
   const {
     nombre,
     fecha,
@@ -98,27 +100,16 @@ app.post("/agendar", async (req, res) => {
     barbero,
   } = req.body;
 
-  // VALIDAR CAMPOS
-
-  if (
-    !nombre ||
-    !fecha ||
-    !hora ||
-    !barbero
-  ) {
+  if (!nombre || !fecha || !hora || !barbero) {
     return res
       .status(400)
       .send("⚠️ Todos los campos son obligatorios");
   }
 
-  // VALIDAR DESCANSOS
-
   const fechaSeleccionada = new Date(fecha);
-
   const dia = fechaSeleccionada.getDay();
 
   // Rodrigo descansa miércoles
-
   if (
     barbero === "Rodrigo" &&
     dia === 2
@@ -129,7 +120,6 @@ app.post("/agendar", async (req, res) => {
   }
 
   // Antonio descansa lunes
-
   if (
     barbero === "Antonio" &&
     dia === 0
@@ -139,8 +129,6 @@ app.post("/agendar", async (req, res) => {
       .send("❌ Antonio no trabaja los lunes");
   }
 
-  // VALIDAR HORARIO OCUPADO
-
   const verificar =
     "SELECT * FROM citas WHERE fecha = ? AND hora = ? AND barbero = ?";
 
@@ -148,12 +136,10 @@ app.post("/agendar", async (req, res) => {
     verificar,
     [fecha, hora, barbero],
     async (err, resultado) => {
+
       if (err) {
         console.log(err);
-
-        return res
-          .status(500)
-          .send("Error del servidor");
+        return res.status(500).send("Error del servidor");
       }
 
       if (resultado.length > 0) {
@@ -162,8 +148,6 @@ app.post("/agendar", async (req, res) => {
           .send("⚠️ Este horario ya está ocupado");
       }
 
-      // GUARDAR CITA
-
       const sql =
         "INSERT INTO citas(nombre, fecha, hora, barbero) VALUES (?, ?, ?, ?)";
 
@@ -171,9 +155,9 @@ app.post("/agendar", async (req, res) => {
         sql,
         [nombre, fecha, hora, barbero],
         async (err, result) => {
+
           if (err) {
             console.log(err);
-
             return res
               .status(500)
               .send("Error al guardar cita");
@@ -184,6 +168,7 @@ app.post("/agendar", async (req, res) => {
           // ============================================
 
           try {
+
             const telefonoBarbero =
               telefonosBarberos[barbero];
 
@@ -203,8 +188,8 @@ app.post("/agendar", async (req, res) => {
 👤 Cliente: ${nombre}
 📅 Fecha: ${fecha}
 ⏰ Hora: ${hora}
-✂️ Barbero: ${barbero}`,
-                },
+✂️ Barbero: ${barbero}`
+                }
               },
               {
                 headers: {
@@ -217,15 +202,11 @@ app.post("/agendar", async (req, res) => {
               }
             );
 
-            console.log(
-              "✅ WhatsApp enviado correctamente"
-            );
+            console.log("✅ WhatsApp enviado");
 
           } catch (error) {
 
-            console.log(
-              "❌ Error enviando WhatsApp"
-            );
+            console.log("❌ Error WhatsApp");
 
             console.log(
               error.response?.data ||
@@ -240,8 +221,10 @@ app.post("/agendar", async (req, res) => {
 
         }
       );
+
     }
   );
+
 });
 
 // ============================================
@@ -256,13 +239,10 @@ app.get("/todas", (req, res) => {
   db.query(sql, (err, result) => {
 
     if (err) {
-
       console.log(err);
-
       return res
         .status(500)
         .send("Error al obtener citas");
-
     }
 
     res.json(result);
@@ -285,13 +265,10 @@ app.delete("/eliminar/:id", (req, res) => {
   db.query(sql, [id], (err, result) => {
 
     if (err) {
-
       console.log(err);
-
       return res
         .status(500)
         .send("Error al eliminar");
-
     }
 
     res.send("Cita eliminada");
@@ -324,13 +301,10 @@ app.put("/editar/:id", (req, res) => {
     (err, result) => {
 
       if (err) {
-
         console.log(err);
-
         return res
           .status(500)
           .send("Error al editar");
-
       }
 
       res.send("Cita actualizada");
