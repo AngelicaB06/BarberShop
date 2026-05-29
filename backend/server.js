@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
@@ -340,4 +341,3 @@ console.log("📡 Intentando iniciar servidor...");
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Servidor iniciado en puerto ${PORT}`);
 });
-```
