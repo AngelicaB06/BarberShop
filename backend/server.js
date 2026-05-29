@@ -29,11 +29,9 @@ app.use(express.json());
 // WHATSAPP BUSINESS API
 // ============================================
 
-const ACCESS_TOKEN =
-  "EAFZBTGlIRGFoBRlqnfbeGvZAeosLIhZAzkfit0RSUvB7IaEqMqJrJcXcVKvrEFBhh8t60a0ukzt46ODBHtwe6lnIlZBHcwm0JcafXT7oSh93zoftpoHlWpUktvyvv6x2RzbvRL6BkqTbPoQgqFPtoSeNWFjaJ1aDT6QrvQBpDMKnBzLpag0hpG2yI0w8rQZDZD";
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 
-const PHONE_NUMBER_ID =
-  "1054733241067417";
+const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
 
 // ============================================
 // TELÉFONOS BARBEROS
