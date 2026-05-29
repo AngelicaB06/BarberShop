@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3001;
 // ============================================
 // MIDDLEWARES
 // ============================================
-
+s
 app.use(cors());
 app.use(express.json());
 
@@ -53,22 +53,30 @@ console.log("MYSQLUSER:", process.env.MYSQLUSER);
 console.log("MYSQLDATABASE:", process.env.MYSQLDATABASE);
 console.log("MYSQLPORT:", process.env.MYSQLPORT);
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASSWORD,
   database: process.env.MYSQLDATABASE,
   port: process.env.MYSQLPORT,
-  connectTimeout: 10000,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
 
-db.connect((err) => {
+console.log("✅ Pool MySQL iniciado");
+
+db.getConnection((err, connection) => {
+
   if (err) {
     console.log("❌ Error conectando MySQL");
     console.log(err);
   } else {
     console.log("✅ MySQL conectado");
+
+    connection.release();
   }
+
 });
 
 // ============================================
