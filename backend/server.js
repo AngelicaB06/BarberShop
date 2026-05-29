@@ -29,7 +29,7 @@ app.use(express.json());
 // ============================================
 
 const ACCESS_TOKEN =
-  "TU_TOKEN";
+  "EAFZBTGlIRGFoBRlqnfbeGvZAeosLIhZAzkfit0RSUvB7IaEqMqJrJcXcVKvrEFBhh8t60a0ukzt46ODBHtwe6lnIlZBHcwm0JcafXT7oSh93zoftpoHlWpUktvyvv6x2RzbvRL6BkqTbPoQgqFPtoSeNWFjaJ1aDT6QrvQBpDMKnBzLpag0hpG2yI0w8rQZDZD";
 
 const PHONE_NUMBER_ID =
   "1054733241067417";
@@ -327,7 +327,9 @@ app.put("/editar/:id", (req, res) => {
 // ============================================
 // SERVIDOR
 // ============================================
+console.log("🚀 ARRANCANDO BACKEND...");
+console.log("📡 Intentando iniciar servidor...");
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Servidor iniciado en puerto ${PORT}`);
 });
