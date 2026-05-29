@@ -47,12 +47,18 @@ const telefonosBarberos = {
 // CONEXIÓN MYSQL
 // ============================================
 
+console.log("MYSQLHOST:", process.env.MYSQLHOST);
+console.log("MYSQLUSER:", process.env.MYSQLUSER);
+console.log("MYSQLDATABASE:", process.env.MYSQLDATABASE);
+console.log("MYSQLPORT:", process.env.MYSQLPORT);
+
 const db = mysql.createConnection({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASSWORD,
   database: process.env.MYSQLDATABASE,
   port: process.env.MYSQLPORT,
+  connectTimeout: 10000,
 });
 
 db.connect((err) => {
@@ -122,7 +128,7 @@ app.post("/agendar", (req, res) => {
   // Rodrigo descansa miércoles
   if (
     barbero === "Rodrigo" &&
-    dia === 2
+    dia === 3
   ) {
     return res
       .status(400)
@@ -132,7 +138,7 @@ app.post("/agendar", (req, res) => {
   // Antonio descansa lunes
   if (
     barbero === "Antonio" &&
-    dia === 0
+    dia === 1
   ) {
     return res
       .status(400)
@@ -327,9 +333,11 @@ app.put("/editar/:id", (req, res) => {
 // ============================================
 // SERVIDOR
 // ============================================
+
 console.log("🚀 ARRANCANDO BACKEND...");
 console.log("📡 Intentando iniciar servidor...");
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Servidor iniciado en puerto ${PORT}`);
 });
+```
