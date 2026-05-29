@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Admin.css";
 const API =
-  "https://barbershop-production-4f2a.up.railway.app";
+  "https://barbershop-production-3e87.up.railway.app";
 
 export default function Admin({ cerrar }) {
 

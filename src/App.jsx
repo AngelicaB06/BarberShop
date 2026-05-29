@@ -4,7 +4,7 @@ import axios from "axios";
 import Admin from "./Admin";
 
 const API =
-  "https://barbershop-production-4f2a.up.railway.app";
+  "https://barbershop-production-3e87.up.railway.app";
 
 export default function App() {
 
@@ -134,7 +134,7 @@ export default function App() {
     if (formulario.fecha && formulario.barbero) {
 
       fetch(
-        `https://barbershop-production-4f2a.up.railway.app/citas/${formulario.fecha}/${formulario.barbero}`
+        `https://barbershop-production-3e87.up.railway.app/citas/${formulario.fecha}/${formulario.barbero}`
       )
         .then((res) => res.json())
         .then((data) => {
