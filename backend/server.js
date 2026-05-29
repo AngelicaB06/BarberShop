@@ -5,6 +5,16 @@ const axios = require("axios");
 
 const app = express();
 
+process.on("uncaughtException", (err) => {
+  console.log("ERROR GLOBAL");
+  console.log(err);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.log("PROMISE ERROR");
+  console.log(err);
+});
+
 const PORT = process.env.PORT || 3001;
 
 // ============================================
