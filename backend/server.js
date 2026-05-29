@@ -129,7 +129,7 @@ app.post("/agendar", (req, res) => {
   // Rodrigo descansa miércoles
   if (
     barbero === "Rodrigo" &&
-    dia === 3
+    dia === 2
   ) {
     return res
       .status(400)
@@ -139,7 +139,7 @@ app.post("/agendar", (req, res) => {
   // Antonio descansa lunes
   if (
     barbero === "Antonio" &&
-    dia === 1
+    dia === 0
   ) {
     return res
       .status(400)

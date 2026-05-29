@@ -18,7 +18,7 @@ export default function Admin({ cerrar }) {
     try {
 
       const res = await axios.get(
-        "https://mysql-production-7547.up.railway.app/todas"
+        "https://barbershop-stating.up.railway.app/todas"
       )
 
       setCitas(res.data);
@@ -57,7 +57,7 @@ export default function Admin({ cerrar }) {
     try {
 
       await axios.delete(
-        `https://mysql-production-7547.up.railway.app/eliminar/${id}`
+        `https://barbershop-stating.up.railway.app/eliminar/${id}`
       );
 
       alert("🗑️ Cita eliminada correctamente");
