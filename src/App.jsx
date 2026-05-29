@@ -194,8 +194,7 @@ export default function App() {
 
     try {
 
-      await axios.post(`${API}/agendar`,formulario
-      );
+      await axios.post(`${API}/agendar`, formulario);
 
       alert("✨ Cita agendada correctamente ✨");
 

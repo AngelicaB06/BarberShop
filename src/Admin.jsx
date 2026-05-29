@@ -19,7 +19,7 @@ export default function Admin({ cerrar }) {
 
     try {
 
-      const res = await axios.get(`${API}/citas`)
+      const res = await axios.get(`${API}/todas`)
       
 
       setCitas(res.data);
@@ -57,8 +57,8 @@ export default function Admin({ cerrar }) {
 
     try {
 
-      await axios.delete(`${API}/eliminar/${id}`)
-
+      await axios.delete(`${API}/eliminar/${id}`);
+      
       alert("🗑️ Cita eliminada correctamente");
 
       obtenerCitas();
