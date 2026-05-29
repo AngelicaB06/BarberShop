@@ -3,6 +3,9 @@ import "./App.css";
 import axios from "axios";
 import Admin from "./Admin";
 
+const API =
+  "https://barbershop-production-4f2a.up.railway.app";
+
 export default function App() {
 
   // ============================================
@@ -131,7 +134,7 @@ export default function App() {
     if (formulario.fecha && formulario.barbero) {
 
       fetch(
-        `https://barbershop-stating.up.railway.app/citas/${formulario.fecha}/${formulario.barbero}`
+        `https://barbershop-production-4f2a.up.railway.app/citas/${formulario.fecha}/${formulario.barbero}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -191,9 +194,7 @@ export default function App() {
 
     try {
 
-      await axios.post(
-        "https://barbershop-stating.up.railway.app/agendar",
-        formulario
+      await axios.post(`${API}/agendar`,formulario
       );
 
       alert("✨ Cita agendada correctamente ✨");

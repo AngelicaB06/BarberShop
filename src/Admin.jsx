@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Admin.css";
+const API =
+  "https://barbershop-production-4f2a.up.railway.app";
 
 export default function Admin({ cerrar }) {
 
@@ -17,9 +19,8 @@ export default function Admin({ cerrar }) {
 
     try {
 
-      const res = await axios.get(
-        "https://barbershop-stating.up.railway.app/todas"
-      )
+      const res = await axios.get(`${API}/todas`)
+      
 
       setCitas(res.data);
 
@@ -56,10 +57,8 @@ export default function Admin({ cerrar }) {
 
     try {
 
-      await axios.delete(
-        `https://barbershop-stating.up.railway.app/eliminar/${id}`
-      );
-
+      await axios.delete(`${API}/eliminar/${id}`)
+      
       alert("🗑️ Cita eliminada correctamente");
 
       obtenerCitas();
