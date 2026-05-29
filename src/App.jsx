@@ -167,7 +167,7 @@ export default function App() {
     // Rodrigo descansa miércoles
     if (
       formulario.barbero === "Rodrigo" &&
-      dia === 2
+      dia === 3
     ) {
       return true;
     }
@@ -175,7 +175,7 @@ export default function App() {
     // Antonio descansa lunes
     if (
       formulario.barbero === "Antonio" &&
-      dia === 0
+      dia === 1
     ) {
       return true;
     }

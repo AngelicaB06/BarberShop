@@ -151,7 +151,7 @@ app.post("/agendar", (req, res) => {
   // Rodrigo descansa miércoles
   if (
     barbero === "Rodrigo" &&
-    dia === 2
+    dia === 3
   ) {
     return res
       .status(400)
@@ -161,7 +161,7 @@ app.post("/agendar", (req, res) => {
   // Antonio descansa lunes
   if (
     barbero === "Antonio" &&
-    dia === 0
+    dia === 1
   ) {
     return res
       .status(400)
