@@ -420,3 +420,6 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log("Servidor iniciado");
 });
+app.get("/", (req, res) => {
+  res.send("API funcionando");
+});
