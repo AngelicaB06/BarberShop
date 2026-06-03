@@ -467,7 +467,7 @@ body {
 
 .logo-principal {
   display: block;
-  width: 40px;
+  width: 100px;
   height: auto;
   margin: 0 auto 15px auto;
 }
@@ -581,6 +581,6 @@ body {
 }
 @media (max-width: 768px) {
   .logo-principal {
-    width: 20px;
+    width: 80px;
   }
 }
