@@ -415,7 +415,7 @@ console.log(formulario);
   <img
     src={Logo1}
     alt="Logo Barber Shop"
-    className="logo-barberia"
+    className="logo-principal"
   />
 </div>
 
