@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import Admin from "./Admin";
+import Logo1 from "./assets/Logo1.png";
 
 const API =
   "https://barbershop-production-3e87.up.railway.app";
@@ -410,9 +411,17 @@ console.log(formulario);
 
           <div className="card">
 
-            <h1 className="titulo">
-              💈 Barber Shop
-            </h1>
+            <div className="titulo-container">
+  <img
+    src={Logo1}
+    alt="Logo Barber Shop"
+    className="logo-barberia"
+  />
+
+  <h1 className="titulo">
+    Barbería Clasica "El General"
+  </h1>
+</div>
 
             <p className="subtitulo">
               Agenda tu cita fácilmente
