@@ -584,3 +584,48 @@ body {
     width: 80px;
   }
 }
+/* ============================================
+   RESPONSIVE MOVIL
+   ============================================ */
+
+@media (max-width: 768px) {
+
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .form-container {
+    order: 1;
+  }
+
+  .info-container {
+    order: 2;
+  }
+
+  .card,
+  .info-card {
+    padding: 1.5rem;
+  }
+
+  .logo-principal {
+    width: 80px;
+  }
+
+}
+@media (max-width: 768px) {
+
+  .info-card {
+    margin-top: 10px;
+  }
+
+  .info-title {
+    font-size: 1.2rem;
+  }
+
+  .info-text {
+    font-size: 0.9rem;
+  }
+
+}
