@@ -13,11 +13,12 @@ export default function App() {
   // ============================================
 
   const [formulario, setFormulario] = useState({
-    nombre: "",
-    fecha: "",
-    hora: "",
-    barbero: "",
-  });
+  nombre: "",
+  fecha: "",
+  hora: "",
+  barbero: "",
+  combo: "",
+});
 
   const [horariosOcupados, setHorariosOcupados] = useState([]);
   const [menuAbierto, setMenuAbierto] = useState(false);
@@ -56,6 +57,63 @@ export default function App() {
     "Rodrigo",
     "Antonio"
   ];
+
+  const combos = {
+  Niño: {
+    precio: 130,
+    incluye: [
+      "Asesoría y corte de cabello",
+      "Bebida de tu preferencia",
+    ],
+  },
+
+  Dama: {
+    precio: 160,
+    incluye: [
+      "Asesoría y corte de cabello",
+      "Bebida de tu preferencia",
+    ],
+  },
+
+  Plata: {
+    precio: 180,
+    incluye: [
+      "Asesoría y corte de cabello",
+      "Diseño de ceja",
+      "Masaje relajante",
+      "Bebida de tu preferencia",
+      "Acceso a internet y Xbox",
+    ],
+  },
+
+  Oro: {
+    precio: 230,
+    incluye: [
+      "Asesoría y corte de cabello",
+      "Diseño de ceja",
+      "Masaje relajante",
+      "Exfoliación facial",
+      "Rehidratación facial",
+      "Bebida de tu preferencia",
+      "Acceso a internet y Xbox",
+    ],
+  },
+
+  Diamante: {
+    precio: 280,
+    incluye: [
+      "Asesoría y corte de cabello",
+      "Corte y diseño de barba",
+      "Pigmentación de barba",
+      "Diseño de ceja",
+      "Masaje relajante",
+      "Exfoliación facial",
+      "Rehidratación facial",
+      "Bebida de tu preferencia",
+      "Acceso a internet y Xbox",
+    ],
+  },
+};
 
   // ============================================
   // INPUTS FORMULARIO
@@ -203,6 +261,7 @@ export default function App() {
         fecha: "",
         hora: "",
         barbero: "",
+        combo:"",
       });
 
       setHorariosOcupados([]);
@@ -412,6 +471,49 @@ export default function App() {
                 ))}
 
               </select>
+
+              <select
+  name="combo"
+  value={formulario.combo}
+  onChange={handleChange}
+  className="form-select"
+  required
+>
+  <option value="">
+    Selecciona un combo
+  </option>
+
+  {Object.keys(combos).map((combo) => (
+    <option key={combo} value={combo}>
+      {combo} - ${combos[combo].precio}
+    </option>
+  ))}
+</select>
+
+{formulario.combo && (
+
+  <div className="combo-info">
+
+    <h3>
+      {formulario.combo} - $
+      {combos[formulario.combo].precio}
+    </h3>
+
+    <ul>
+
+      {combos[formulario.combo].incluye.map(
+        (item, index) => (
+          <li key={index}>
+            ✅ {item}
+          </li>
+        )
+      )}
+
+    </ul>
+
+  </div>
+
+)}
 
               <select
                 name="hora"

@@ -137,9 +137,10 @@ app.post("/agendar", (req, res) => {
     fecha,
     hora,
     barbero,
+    combo
   } = req.body;
 
-  if (!nombre || !fecha || !hora || !barbero) {
+  if (!nombre || !fecha || !hora || !barbero || !combo) {
     return res
       .status(400)
       .send("⚠️ Todos los campos son obligatorios");
@@ -148,7 +149,6 @@ app.post("/agendar", (req, res) => {
   const fechaSeleccionada = new Date(fecha);
   const dia = fechaSeleccionada.getDay();
 
-  // Rodrigo descansa miércoles
   if (
     barbero === "Rodrigo" &&
     dia === 2
@@ -158,7 +158,6 @@ app.post("/agendar", (req, res) => {
       .send("❌ Rodrigo no trabaja los miércoles");
   }
 
-  // Antonio descansa lunes
   if (
     barbero === "Antonio" &&
     dia === 0
@@ -188,11 +187,11 @@ app.post("/agendar", (req, res) => {
       }
 
       const sql =
-        "INSERT INTO citas(nombre, fecha, hora, barbero) VALUES (?, ?, ?, ?)";
+        "INSERT INTO citas(nombre, fecha, hora, barbero, combo) VALUES (?, ?, ?, ?, ?)";
 
       db.query(
         sql,
-        [nombre, fecha, hora, barbero],
+        [nombre, fecha, hora, barbero, combo],
         async (err, result) => {
 
           if (err) {
@@ -201,10 +200,6 @@ app.post("/agendar", (req, res) => {
               .status(500)
               .send("Error al guardar cita");
           }
-
-          // ============================================
-          // ENVIAR WHATSAPP
-          // ============================================
 
           try {
 
@@ -215,16 +210,14 @@ app.post("/agendar", (req, res) => {
               `https://graph.facebook.com/v22.0/${PHONE_NUMBER_ID}/messages`,
               {
                 messaging_product: "whatsapp",
-
                 to: telefonoBarbero,
-
                 type: "text",
-
                 text: {
                   body:
 `💈 Nueva cita agendada
 
 👤 Cliente: ${nombre}
+📦 Combo: ${combo}
 📅 Fecha: ${fecha}
 ⏰ Hora: ${hora}
 ✂️ Barbero: ${barbero}`
@@ -234,18 +227,13 @@ app.post("/agendar", (req, res) => {
                 headers: {
                   Authorization:
                     `Bearer ${ACCESS_TOKEN}`,
-
                   "Content-Type":
                     "application/json",
                 },
               }
             );
 
-            console.log("✅ WhatsApp enviado");
-
           } catch (error) {
-
-            console.log("❌ Error WhatsApp");
 
             console.log(
               error.response?.data ||

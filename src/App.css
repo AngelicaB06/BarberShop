@@ -548,3 +548,27 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #2563eb;
 }
+.combo-info {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid #3b82f6;
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.combo-info h3 {
+  color: #2563eb;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.combo-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.combo-info li {
+  color: #334155;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
