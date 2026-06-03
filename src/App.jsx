@@ -298,6 +298,34 @@ export default function App() {
 
                 <span>🔐</span>
 
+                Administrador
+
+              </button>
+
+
+            </li>
+
+          </ul>
+
+          <ul className="menu-lista">
+
+            <li>
+
+              <button
+
+                onClick={() => {
+
+                  setMostrarLogin(true);
+
+                  setMenuAbierto(false);
+
+                }}
+
+                className="menu-item"
+              >
+
+                <span>🔐</span>
+
                 Promociones
 
               </button>
