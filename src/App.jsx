@@ -585,13 +585,14 @@ console.log(formulario);
           <div className="info-card">
 
             <h2 className="info-title">
-              ✨ Sobre Nosotros
+              BARBERÍA CLÁSICA EL GENERAL CLASICOS POR 
+              CONVICCION 
             </h2>
 
             <p className="info-text">
-              En Barber Shop ofrecemos los mejores
-              cortes y afeitados con atención
-              profesional y estilo moderno.
+              PARA NOSOTROS, EL CORTE DE CABELLO ES UN ACTO 
+              DE IDENTIDAD Y AUTONOMÍA. ES LA FORMA EN QUE 
+              EL HOMBRE SE PRESENTA AL MUNDO.
             </p>
 
             <div className="info-item">
@@ -604,10 +605,13 @@ console.log(formulario);
 
             <div className="info-item">
               🕒 Lun - Sáb | 10AM - 8PM
+              🕒 Dom | 11AM - 6PM
             </div>
 
             <div className="info-item">
-              📸 @BarberShop
+              📸 @BCELGENERAL27
+              facebook: BARBERÍA CLASÍCA BCELGENERAL27 EL GENERAL
+              Tik Tok: BCELGENERAL27
             </div>
 
           </div>
