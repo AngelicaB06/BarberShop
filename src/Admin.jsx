@@ -139,7 +139,7 @@ export default function Admin({ cerrar }) {
                     <td>{cita.fecha}</td>
                     <td>{cita.hora}</td>
                     <td>💈 {cita.barbero}</td>
-                    <td> {cita.combos}</td>
+                    <td> {cita.combo}</td>
                     <td>
 
                       <button

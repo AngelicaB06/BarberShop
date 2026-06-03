@@ -245,7 +245,7 @@ export default function App() {
   // ============================================
   // GUARDAR CITA
   // ============================================
-
+console.log(formulario);
   const handleSubmit = async (e) => {
 
     e.preventDefault();
