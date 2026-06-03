@@ -55,7 +55,7 @@ export default function App() {
 
   const barberos = [
     "Rodrigo",
-    "Antonio Aguilar",
+    "Antonio",
   ];
 
   const combos = {
