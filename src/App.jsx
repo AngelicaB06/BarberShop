@@ -577,8 +577,7 @@ console.log(formulario);
           </div>
 
         </div>
-
-        {/* INFO */}
+      {/* INFO */}
 
 <div className="info-container">
   <div className="info-card">
@@ -618,6 +617,9 @@ console.log(formulario);
 
   </div>
 </div>
+</div> {/* FIN content-wrapper */}
+
+        
 
       {/* ============================================
           LOGIN MODAL
