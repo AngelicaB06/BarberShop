@@ -472,6 +472,19 @@ body {
   margin: 0 auto 15px auto;
 }
 
+.info-item {
+  padding: 12px 15px;
+  background: rgba(241, 245, 249, 0.8);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.info-item strong {
+  color: #2563eb;
+}
+
 /* ============================================
    ADMIN MODAL
    ============================================ */

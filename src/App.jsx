@@ -580,45 +580,44 @@ console.log(formulario);
 
         {/* INFO */}
 
-        <div className="info-container">
+<div className="info-container">
+  <div className="info-card">
 
-          <div className="info-card">
+    <h2 className="info-title">
+      💈 Barbería Clásica El General
+    </h2>
 
-            <h2 className="info-title">
-              BARBERÍA CLÁSICA EL GENERAL CLASICOS POR 
-              CONVICCION 
-            </h2>
+    <p className="info-text">
+      <strong>Clásicos por convicción.</strong><br /><br />
+      Para nosotros, el corte de cabello es un acto de identidad y autonomía.
+      Es la forma en que el hombre se presenta al mundo.
+    </p>
 
-            <p className="info-text">
-              PARA NOSOTROS, EL CORTE DE CABELLO ES UN ACTO 
-              DE IDENTIDAD Y AUTONOMÍA. ES LA FORMA EN QUE 
-              EL HOMBRE SE PRESENTA AL MUNDO.
-            </p>
+    <div className="info-item">
+      📍 <strong>Dirección:</strong><br />
+      Av. Principal #123
+    </div>
 
-            <div className="info-item">
-              📍 Av. Principal #123
-            </div>
+    <div className="info-item">
+      📞 <strong>Teléfono:</strong><br />
+      +52 55 1234 5678
+    </div>
 
-            <div className="info-item">
-              📞 +52 55 1234 5678
-            </div>
+    <div className="info-item">
+      🕒 <strong>Horarios:</strong><br />
+      Lunes a Sábado: 10:00 AM - 8:00 PM<br />
+      Domingo: 11:00 AM - 6:00 PM
+    </div>
 
-            <div className="info-item">
-              🕒 Lun - Sáb | 10AM - 8PM
-              🕒 Dom | 11AM - 6PM
-            </div>
+    <div className="info-item">
+      📸 <strong>Redes Sociales:</strong><br />
+      Instagram: @BCELGENERAL27<br />
+      Facebook: Barbería Clásica El General<br />
+      TikTok: @BCELGENERAL27
+    </div>
 
-            <div className="info-item">
-              📸 @BCELGENERAL27
-              facebook: BARBERÍA CLASÍCA BCELGENERAL27 EL GENERAL
-              Tik Tok: BCELGENERAL27
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
+  </div>
+</div>
 
       {/* ============================================
           LOGIN MODAL
