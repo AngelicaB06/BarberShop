@@ -55,7 +55,7 @@ export default function App() {
 
   const barberos = [
     "Rodrigo",
-    "Antonio"
+    "Antonio Aguilar",
   ];
 
   const combos = {
@@ -232,7 +232,7 @@ export default function App() {
 
     // Antonio descansa lunes
     if (
-      formulario.barbero === "Antonio" &&
+      formulario.barbero === "Antonio Aguilar" &&
       dia === 0
     ) {
       return true;
