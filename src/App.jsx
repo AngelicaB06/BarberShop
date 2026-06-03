@@ -417,10 +417,6 @@ console.log(formulario);
     alt="Logo Barber Shop"
     className="logo-barberia"
   />
-
-  <h1 className="titulo">
-    Barbería Clasica "El General"
-  </h1>
 </div>
 
             <p className="subtitulo">
