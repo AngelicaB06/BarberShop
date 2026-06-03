@@ -1,118 +1,3 @@
-.admin-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.admin-content {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.cerrar-admin {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
-
-.admin-title {
-  text-align: center;
-  font-size: 2.5rem;
-  background: linear-gradient(135deg, #fbbf24 0%, #eab308 50%, #ca8a04 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin-bottom: 2rem;
-}
-
-.admin-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.stat-card {
-  background: rgba(24, 24, 27, 0.95);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  text-align: center;
-  border: 1px solid rgba(234, 179, 8, 0.3);
-}
-
-.stat-numero {
-  display: block;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #eab308;
-}
-
-.stat-label {
-  color: #9ca3af;
-}
-
-.tabla-container {
-  background: rgba(24, 24, 27, 0.95);
-  border-radius: 1.5rem;
-  border: 1px solid rgba(234, 179, 8, 0.3);
-  overflow-x: auto;
-}
-
-.tabla {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.tabla th {
-  background: rgba(234, 179, 8, 0.2);
-  padding: 1rem;
-  text-align: left;
-  color: #eab308;
-}
-
-.tabla td {
-  padding: 1rem;
-  color: #d1d5db;
-  border-bottom: 1px solid rgba(234, 179, 8, 0.1);
-}
-
-.btn-eliminar {
-  background: rgba(239, 68, 68, 0.2);
-  border: 1px solid rgba(239, 68, 68, 0.5);
-  color: #ef4444;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-
-.sin-citas {
-  text-align: center;
-  padding: 3rem;
-  color: #9ca3af;
-}
-
-@media (max-width: 768px) {
-  .admin-container {
-    padding: 1rem;
-  }
-  
-  .admin-title {
-    font-size: 1.8rem;
-  }
-  
-  .tabla {
-    min-width: 600px;
-  }
-}
 /* Admin.css - Estilos para el panel admin dentro del modal */
 
 .admin-modal-container {
@@ -124,8 +9,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  background: rgba(239, 68, 68, 0.2);
-  border: 1px solid rgba(239, 68, 68, 0.5);
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
   color: #ef4444;
   padding: 8px 16px;
   border-radius: 8px;
@@ -135,7 +20,7 @@
 }
 
 .admin-modal-cerrar:hover {
-  background: rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.3);
   transform: scale(1.05);
 }
 
@@ -143,7 +28,7 @@
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
-  background: linear-gradient(135deg, #fbbf24 0%, #eab308 50%, #ca8a04 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e3a8a 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -159,36 +44,39 @@
 }
 
 .admin-modal-stat-card {
-  background: rgba(24, 24, 27, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 1rem;
   padding: 1.2rem;
   text-align: center;
-  border: 1px solid rgba(234, 179, 8, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
 
 .admin-modal-stat-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(234, 179, 8, 0.6);
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
 }
 
 .admin-modal-stat-numero {
   display: block;
   font-size: 2rem;
   font-weight: bold;
-  color: #eab308;
+  color: #2563eb;
 }
 
 .admin-modal-stat-label {
-  color: #9ca3af;
+  color: #64748b;
   font-size: 0.85rem;
 }
 
 .admin-modal-tabla-container {
-  background: rgba(24, 24, 27, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 1rem;
-  border: 1px solid rgba(234, 179, 8, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.3);
   overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .admin-modal-tabla {
@@ -197,29 +85,29 @@
 }
 
 .admin-modal-tabla thead {
-  background: rgba(234, 179, 8, 0.15);
+  background: rgba(59, 130, 246, 0.1);
 }
 
 .admin-modal-tabla th {
   padding: 0.8rem;
   text-align: left;
-  color: #eab308;
+  color: #1e40af;
   font-weight: 600;
 }
 
 .admin-modal-tabla td {
   padding: 0.8rem;
-  color: #d1d5db;
-  border-bottom: 1px solid rgba(234, 179, 8, 0.1);
+  color: #334155;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
 }
 
 .admin-modal-tabla tbody tr:hover {
-  background: rgba(234, 179, 8, 0.05);
+  background: rgba(59, 130, 246, 0.05);
 }
 
 .admin-modal-btn-eliminar {
-  background: rgba(239, 68, 68, 0.2);
-  border: 1px solid rgba(239, 68, 68, 0.5);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.4);
   color: #ef4444;
   padding: 0.4rem 0.8rem;
   border-radius: 0.5rem;
@@ -228,20 +116,20 @@
 }
 
 .admin-modal-btn-eliminar:hover {
-  background: rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.25);
   transform: scale(1.05);
 }
 
 .admin-modal-sin-citas {
   text-align: center;
   padding: 2rem;
-  color: #9ca3af;
+  color: #64748b;
 }
 
 .admin-modal-cargando {
   text-align: center;
   padding: 2rem;
-  color: #eab308;
+  color: #2563eb;
 }
 
 /* Responsive */
