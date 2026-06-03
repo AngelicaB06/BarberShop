@@ -1,6 +1,5 @@
 require("dotenv").config();
 
-
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
@@ -33,12 +32,10 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-
   console.log("❌ ERROR EXPRESS:");
   console.log(err);
 
   res.status(500).send(err.message);
-
 });
 
 // ============================================
@@ -46,7 +43,6 @@ app.use((err, req, res, next) => {
 // ============================================
 
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
-
 const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
 
 // ============================================
@@ -81,16 +77,13 @@ const db = mysql.createPool({
 console.log("✅ Pool MySQL iniciado");
 
 db.getConnection((err, connection) => {
-
   if (err) {
     console.log("❌ Error conectando MySQL");
     console.log(err);
   } else {
     console.log("✅ MySQL conectado");
-
     connection.release();
   }
-
 });
 
 // ============================================
@@ -106,7 +99,6 @@ app.get("/", (req, res) => {
 // ============================================
 
 app.get("/citas/:fecha/:barbero", (req, res) => {
-
   const fecha = req.params.fecha;
   const barbero = req.params.barbero;
 
@@ -114,18 +106,14 @@ app.get("/citas/:fecha/:barbero", (req, res) => {
     "SELECT hora FROM citas WHERE fecha = ? AND barbero = ?";
 
   db.query(sql, [fecha, barbero], (err, result) => {
-
     if (err) {
       console.log(err);
       return res.status(500).send("Error al obtener horarios");
     }
 
     res.json(result);
-
   });
-
 });
-
 // ============================================
 // AGENDAR CITA
 // ============================================
@@ -134,21 +122,29 @@ app.post("/agendar", (req, res) => {
 
   const {
     nombre,
+    combo,
     fecha,
     hora,
     barbero,
   } = req.body;
 
-  if (!nombre || !fecha || !hora || !barbero) {
+  if (
+    !nombre ||
+    !combo ||
+    !fecha ||
+    !hora ||
+    !barbero
+  ) {
     return res
       .status(400)
       .send("⚠️ Todos los campos son obligatorios");
   }
 
-  const fechaSeleccionada = new Date(fecha);
+  const fechaSeleccionada =
+    new Date(fecha + "T12:00:00");
+
   const dia = fechaSeleccionada.getDay();
 
-  // Rodrigo descansa miércoles
   if (
     barbero === "Rodrigo" &&
     dia === 3
@@ -158,7 +154,6 @@ app.post("/agendar", (req, res) => {
       .send("❌ Rodrigo no trabaja los miércoles");
   }
 
-  // Antonio descansa lunes
   if (
     barbero === "Antonio" &&
     dia === 1
@@ -188,11 +183,11 @@ app.post("/agendar", (req, res) => {
       }
 
       const sql =
-        "INSERT INTO citas(nombre, fecha, hora, barbero) VALUES (?, ?, ?, ?)";
+        "INSERT INTO citas(nombre, combo, fecha, hora, barbero) VALUES (?, ?, ?, ?, ?)";
 
       db.query(
         sql,
-        [nombre, fecha, hora, barbero],
+        [nombre, combo, fecha, hora, barbero],
         async (err, result) => {
 
           if (err) {
@@ -201,10 +196,6 @@ app.post("/agendar", (req, res) => {
               .status(500)
               .send("Error al guardar cita");
           }
-
-          // ============================================
-          // ENVIAR WHATSAPP
-          // ============================================
 
           try {
 
@@ -225,6 +216,7 @@ app.post("/agendar", (req, res) => {
 `💈 Nueva cita agendada
 
 👤 Cliente: ${nombre}
+💎 Combo: ${combo}
 📅 Fecha: ${fecha}
 ⏰ Hora: ${hora}
 ✂️ Barbero: ${barbero}`
@@ -234,7 +226,6 @@ app.post("/agendar", (req, res) => {
                 headers: {
                   Authorization:
                     `Bearer ${ACCESS_TOKEN}`,
-
                   "Content-Type":
                     "application/json",
                 },
@@ -265,7 +256,6 @@ app.post("/agendar", (req, res) => {
   );
 
 });
-
 // ============================================
 // OBTENER TODAS LAS CITAS
 // ============================================
@@ -326,17 +316,18 @@ app.put("/editar/:id", (req, res) => {
 
   const {
     nombre,
+    combo,
     fecha,
     hora,
     barbero,
   } = req.body;
 
   const sql =
-    "UPDATE citas SET nombre=?, fecha=?, hora=?, barbero=? WHERE id=?";
+    "UPDATE citas SET nombre=?, combo=?, fecha=?, hora=?, barbero=? WHERE id=?";
 
   db.query(
     sql,
-    [nombre, fecha, hora, barbero, id],
+    [nombre, combo, fecha, hora, barbero, id],
     (err, result) => {
 
       if (err) {
