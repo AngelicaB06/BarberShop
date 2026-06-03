@@ -54,7 +54,7 @@ export default function App() {
 
   const barberos = [
     "Rodrigo",
-    "Antonio",
+    "Antonio,
   ];
 
   // ============================================
@@ -167,7 +167,7 @@ export default function App() {
     // Rodrigo descansa miércoles
     if (
       formulario.barbero === "Rodrigo" &&
-      dia === 3
+      dia === 2
     ) {
       return true;
     }
@@ -175,7 +175,7 @@ export default function App() {
     // Antonio descansa lunes
     if (
       formulario.barbero === "Antonio" &&
-      dia === 1
+      dia === 0
     ) {
       return true;
     }
@@ -298,9 +298,10 @@ export default function App() {
 
                 <span>🔐</span>
 
-                Login Administrador
+                Promociones
 
               </button>
+
 
             </li>
 
