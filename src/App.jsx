@@ -232,7 +232,7 @@ export default function App() {
 
     // Antonio descansa lunes
     if (
-      formulario.barbero === "Antonio Aguilar" &&
+      formulario.barbero === "Antonio" &&
       dia === 0
     ) {
       return true;

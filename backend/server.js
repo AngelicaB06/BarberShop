@@ -55,7 +55,7 @@ const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
 
 const telefonosBarberos = {
   Rodrigo: "525665094429",
-  Antonio Aguilar: "525520523608",
+  Antonio: "525520523608",
 };
 
 // ============================================
@@ -159,7 +159,7 @@ app.post("/agendar", (req, res) => {
   }
 
   if (
-    barbero === "Antonio Aguilar" &&
+    barbero === "Antonio" &&
     dia === 0
   ) {
     return res
