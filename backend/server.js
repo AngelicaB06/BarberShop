@@ -56,7 +56,7 @@ const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
 const telefonosBarberos = {
   Rodrigo: "525665094429",
   Antonio: "525520523608",
-};0
+};
 
 // ============================================
 // CONEXIÓN MYSQL
