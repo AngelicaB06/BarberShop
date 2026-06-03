@@ -467,9 +467,9 @@ body {
 
 .logo-principal {
   display: block;
-  width: 50px;
+  width: 70px;
   height: auto;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 10px auto;
   object-fit: contain;
 }
 
@@ -579,4 +579,19 @@ body {
   color: #334155;
   padding: 5px 0;
   border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
+/* Móviles */
+@media (max-width: 768px) {
+
+  .logo-principal {
+    width: 55px;
+  }
+
+}
+@media (max-width: 480px) {
+
+  .logo-principal {
+    width: 45px;
+  }
+
 }
