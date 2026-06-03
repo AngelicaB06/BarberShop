@@ -55,7 +55,7 @@ const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
 
 const telefonosBarberos = {
   Rodrigo: "525665094429",
-  Antonio: "525520523608",
+  Antonio Aguilar: "525520523608",
 };
 
 // ============================================
@@ -159,12 +159,12 @@ app.post("/agendar", (req, res) => {
   }
 
   if (
-    barbero === "Antonio" &&
+    barbero === "Antonio Aguilar" &&
     dia === 0
   ) {
     return res
       .status(400)
-      .send("❌ Antonio no trabaja los lunes");
+      .send("❌ Antonio Aguilar no trabaja los lunes");
   }
 
   const verificar =
