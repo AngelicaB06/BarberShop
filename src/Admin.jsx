@@ -120,6 +120,7 @@ export default function Admin({ cerrar }) {
                 <th>Fecha</th>
                 <th>Hora</th>
                 <th>Barbero</th>
+                <th>Combo</th>
                 <th>Acción</th>
               </tr>
 
@@ -138,6 +139,7 @@ export default function Admin({ cerrar }) {
                     <td>{cita.fecha}</td>
                     <td>{cita.hora}</td>
                     <td>💈 {cita.barbero}</td>
+                    <td>💈 {cita.combo}</td>
                     <td>
 
                       <button
